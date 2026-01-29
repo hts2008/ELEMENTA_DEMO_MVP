@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ELEMENTA | The Science of Comfort</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              amber: {
+                500: '#FFB300', // Industrial Amber
+                400: '#FFC107',
+                600: '#E09D00',
+              },
+              concrete: {
+                50: '#FFFFFF', // Pure White for Light Mode
+                100: '#F5F5F5', // Light Gray
+                200: '#E5E5E5',
+                300: '#D4D4D4',
+                700: '#404040',
+                800: '#262626',
+                900: '#171717', // Dark Gray
+                950: '#0A0A0A', // Deep Black for Dark Mode
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+              display: ['Space Mono', 'monospace'],
+            },
+            animation: {
+              'spin-slow': 'spin 12s linear infinite',
+              'orbit': 'orbit 4s linear infinite',
+              'orbit-reverse': 'orbit 6s linear infinite reverse',
+              'tilt': 'tilt 10s infinite linear',
+              'marquee': 'marquee 20s linear infinite',
+              'scan': 'scan 2s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+              tilt: {
+                '0%, 50%, 100%': { transform: 'rotate(0deg)' },
+                '25%': { transform: 'rotate(1deg)' },
+                '75%': { transform: 'rotate(-1deg)' },
+              },
+              scan: {
+                '0%': { top: '-10%' },
+                '100%': { top: '110%' },
+              },
+              orbit: {
+                '0%': { transform: 'rotate(0deg) translateX(24px) rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg) translateX(24px) rotate(-360deg)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0A0A0A;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border: 1px solid #0A0A0A;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #FFB300;
+      }
+      
+      /* 3D Utilities */
+      .perspective-1000 { perspective: 1000px; }
+      .preserve-3d { transform-style: preserve-3d; }
+      .backface-hidden { backface-visibility: hidden; }
+      
+      /* Smooth transitions for assembly effect */
+      .reveal-element {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 1000ms;
+      }
+      
+      body {
+        transition: background-color 0.5s ease;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "recharts": "https://esm.sh/recharts@2.12.3?deps=react@18.2.0,react-dom@18.2.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
+    "three": "https://esm.sh/three@0.160.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.15.16?deps=three@0.160.0,react@18.2.0,react-dom@18.2.0",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.99.0?deps=three@0.160.0,react@18.2.0,react-dom@18.2.0,@react-three/fiber@8.15.16",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+  <body class="bg-concrete-50 dark:bg-concrete-950 text-concrete-900 dark:text-concrete-50 antialiased selection:bg-amber-500 selection:text-black overflow-x-hidden">
+    <div id="root"></div>
+  </body>
+</html>
