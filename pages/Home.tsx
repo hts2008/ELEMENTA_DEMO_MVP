@@ -176,7 +176,8 @@ export const HomePage = () => {
               >
                  <ElementCardWrapper el={el} idx={idx} />
               </ScrollReveal>
-            )}}
+            );
+            })}
           </div>
         </div>
       </section>
