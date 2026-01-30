@@ -700,10 +700,10 @@ Dự án được chia thành 3 giai đoạn (Phase) để đảm bảo chất l
 
 | Giai đoạn                  | Thời gian     | Cột mốc (Milestone)                                                                                        | Ngân sách ước tính (VND)         |
 | :------------------------- | :------------ | :--------------------------------------------------------------------------------------------------------- | :------------------------------- |
-| **Phase 1: Foundation**    | Tuần 1 - 4    | 1. Thiết lập hạ tầng (Next.js, Supabase).<br/>2. Design System & UI Kit.<br/>3. Phát triển Homepage & PLP. | **60.000.000 - 80.000.000 ₫**    |
-| **Phase 2: Core Platform** | Tuần 5 - 8    | 1. Phát triển PDP & 3D Viewer.<br/>2. Hệ thống Giỏ hàng & Thanh toán.<br/>3. Xây dựng CMS Admin Panel.     | **100.000.000 - 120.000.000 ₫**  |
-| **Phase 3: Launch**        | Tuần 9 - 10   | 1. Kiểm thử (QC) & Sửa lỗi.<br/>2. Nhập liệu nội dung & Sản phẩm.<br/>3. Triển khai Production & SEO.      | **40.000.000 - 50.000.000 ₫**    |
-| **TỔNG CỘNG**              | **2.5 Tháng** | **Hoàn thiện nền tảng M2C Commerce**                                                                       | **~200.000.000 - 250.000.000 ₫** |
+| **Phase 1: Foundation**    | Tuần 1 - 4    | 1. Thiết lập hạ tầng (Next.js, Supabase).<br/>2. Design System & UI Kit.<br/>3. Phát triển Homepage & PLP. | **80.000.000 - 100.000.000 ₫**    |
+| **Phase 2: Core Platform** | Tuần 5 - 8    | 1. Phát triển PDP & 3D Viewer.<br/>2. Hệ thống Giỏ hàng & Thanh toán.<br/>3. Xây dựng CMS Admin Panel.     | **120.000.000 - 140.000.000 ₫**  |
+| **Phase 3: Launch**        | Tuần 9 - 10   | 1. Kiểm thử (QC) & Sửa lỗi.<br/>2. Nhập liệu nội dung & Sản phẩm.<br/>3. Triển khai Production & SEO.      | **60.000.000 - 80.000.000 ₫**    |
+| **TỔNG CỘNG**              | **2.5 Tháng** | **Hoàn thiện nền tảng M2C Commerce**                                                                       | **~240.000.000 - 320.000.000 ₫** |
 
 ### 6.2. Kết Luận
 
