@@ -301,140 +301,153 @@ Thiết kế tối ưu trên 1 trang (Single-Page Optimized). Mục tiêu: Thờ
 
 ---
 
-## 3. HỆ THỐNG QUẢN TRỊ NỘI DUNG (CMS & ADMIN PANEL)
+## 3. HỆ THỐNG QUẢN TRỊ TOÀN DIỆN (ELEMENTA OMNICHANNEL CMS)
 
-### 3.1. Triết Lý Thiết Kế CMS
+Bản cập nhật CMS v2.0 - Tích hợp các tính năng quản lý chuyên sâu tương đương nền tảng Haravan Enterprise/Shopify Plus để tối ưu hóa vận hành mô hình M2C.
 
-Hệ thống CMS được xây dựng theo tiêu chuẩn **thương mại điện tử doanh nghiệp (enterprise)** nhưng được tùy chỉnh riêng cho quy trình sản xuất M2C của ELEMENTA.
+### 3.1. Tổng Quan Kiến Trúc Quản Trị
 
-**Nguyên Tắc Cốt Lõi:**
+Hệ thống được thiết kế theo mô hình **Headless Commerce**, tách biệt Front-end (Storefront) và Back-end (Core Engine), giúp mở rộng không giới hạn.
 
-- 🎨 **Thân thiện người dùng (User-friendly):** Nhân viên không chuyên kỹ thuật vẫn sử dụng dễ dàng.
-- 🔄 **Định hướng quy trình (Workflow-oriented):** Theo sát luồng QC (Kiểm định) → Đóng gói → Vận chuyển.
-- 📊 **Minh bạch dữ liệu (Data transparency):** Mọi thông số vải, kỹ thuật đều có trường nhập liệu riêng.
-- 📦 **Tập trung tồn kho (Inventory-centric):** Quản lý tồn kho theo ma trận Size/Màu sắc/Nguyên tố.
+**Core Modules:**
 
-### 3.2. Tổng Quan Dashboard
+1.  **Operation Hub**: Xử lý đơn hàng, kho vận, sản phẩm.
+2.  **Omnichannel Connect**: Đồng bộ đa kênh (Website, Shopee, TikTok Shop, POS).
+3.  **Growth Engine**: Marketing, Loyalty, CRM.
+4.  **Data Intelligence**: Báo cáo phân tích chuyên sâu.
 
-**Cấu trúc Bố cục Dashboard:**
+### 3.2. Dashboard Điều Hành (Control Center)
 
-- **Header:** Logo Elementa Admin, Thông tin Admin, Nút Đăng xuất, Ngày giờ hệ thống.
-- **Thẻ KPI (Chỉ số):**
-  - Hôm nay: Đơn hàng, Doanh thu.
-  - Tuần này & Tháng này: Tổng hợp số liệu.
-- **Biểu đồ Bán hàng:** Biểu đồ đường hiển thị Doanh thu và Số lượng đơn hàng trong 30 ngày qua.
-- **Hành động Nhanh:**
-  - `[+ Thêm Sản Phẩm Mới]`
-  - `[Xử Lý Đơn Hàng]`
-  - `[Xem Báo Cáo]`
-- **Nhiệm vụ Cần Xử lý (Pending Tasks):**
-  - ⚠ Đơn hàng chờ duyệt QC.
-  - ⚠ Sản phẩm sắp hết hàng (< 10 đơn vị).
-  - ⚠ Tin nhắn khách hàng chưa phản hồi.
+**Giao diện "Single-Pane-of-Glass":**
 
-### 3.3. Chi Tiết Các Module Chức Năng
+- **Real-time Metrics:**
+  - Doanh thu theo giờ thực (Live Revenue).
+  - Visitor đang online (Live Traffic).
+  - Sự cố cần xử lý (Failed Payments, QC Rejects).
+- **To-Do List Thông Minh:**
+  - 🔔 "5 đơn hàng mới từ TikTok Shop chưa xác nhận"
+  - 📦 "3 sản phẩm Base Tee size L dưới định mức tồn kho"
+  - 💬 "2 tin nhắn mới trên Facebook chưa trả lời"
 
-#### 3.3.1. Quản Lý Sản Phẩm (Product Management)
+### 3.3. Quản Lý Sản Phẩm & Tồn Kho (Advanced PIM)
 
-**Giao diện Danh sách Sản phẩm:**
-Hiển thị bảng danh sách tích hợp bộ lọc (Tất cả, Tồn kho, Nguyên tố) và Thanh tìm kiếm.
+#### 3.3.1. Quản Lý Sản Phẩm Đa Chiều
 
-| Hình ảnh | Tên sản phẩm                  | SKU         | Giá     | Tồn kho | Trạng thái | Hành động            |
-| :------- | :---------------------------- | :---------- | :------ | :------ | :--------- | :------------------- |
-| `[IMG]`  | The Lab Tee<br/>[Ba] Base     | BA-M01-WH-L | 289,000 | 124     | ● Đang bán | `[Sửa]` `[Nhân bản]` |
-| `[IMG]`  | Scholar Polo<br/>[Sc] Scholar | SC-M-POLO   | 349,000 | 8 ⚠     | ● Đang bán | `[Sửa]` `[Nhân bản]` |
+- **Biến thể (Variants) không giới hạn:** Quản lý theo ma trận Size / Màu / Chất liệu / Year Collection.
+- **Thuộc tính tùy chỉnh (Metafields):**
+  - _Vải:_ GSM, Thành phần (cotton %), độ co giãn.
+  - _Dệt:_ Kiểu dệt (Pique, Jersey...), Mật độ.
+  - _Sản xuất:_ Nhà máy gia công, Mã lô sản xuất.
+- **Digital Assets:** Quản lý tập trung hình ảnh 4K, video runway, và **file 3D (.glb)** cho từng biến thể.
 
-**Màn hình Chỉnh sửa Sản phẩm (Tabs):**
+#### 3.3.2. Quản Lý Tồn Kho Đa Kho (Multi-Warehouse)
 
-1.  **TAB 1: THÔNG TIN CƠ BẢN**
-    - Tên (VN/EN), Nguyên tố (Chọn `[Ba]`, `[Sc]`...), SKU Prefix (Tự động).
-    - Mô tả (Rich text editor). Phân loại (Danh mục, Thẻ).
+Tính năng quan trọng cho mô hình M2C (Kho nhà máy -> Kho Fulfillment -> Cửa hàng):
 
-2.  **TAB 2: GIÁ & TỒN KHO**
-    - **Ma trận Phân loại:** Size (S, M, L...) × Màu sắc.
-    - Nhập liệu số lượng và giá cho từng biến thể.
-    - Cưỡng báo tồn kho thấp (ngưỡng tùy chỉnh).
-    - Định dạng SKU: `[MÃ]-[MÀU]-[SIZE]`.
+- **Định vị kho:** Cấu hình nhiều kho (Kho Tổng HCM, Kho Hà Nội, Kho Đà Nẵng).
+- **Điều chuyển kho:** Tạo phiếu chuyển hàng (Stock Transfer) giữa các kho.
+- **Kiểm kê:** Quy trình kiểm kho (Stocktake) bằng quét mã barcode/QR.
+- **Dự báo nhập hàng:** Gợi ý số lượng cần sản xuất thêm dựa trên tốc độ bán (Sales velocity).
 
-3.  **TAB 3: THÔNG SỐ KỸ THUẬT (Đặc thù Elementa)**
-    - **Công nghệ vải:** Thành phần (100% Cotton...), Trọng lượng (GSM), Kiểu dệt (Plain/Tổ ong), Mã màu Pantone.
-    - **Cấu trúc:** Mật độ đường may (SPI), Loại cổ áo.
-    - **Chứng nhận:** Checkbox (Oeko-Tex, ISO 9001).
-    - **Báo cáo Lab:** Upload file PDF.
+### 3.4. Quản Lý Bán Hàng Đa Kênh (Omnichannel)
 
-4.  **TAB 4: HÌNH ẢNH & MODEL 3D**
-    - Upload Kéo & Thả (Yêu cầu >2000px, nền trong suốt).
-    - **3D Model:** Upload file `.glb`/`.gltf`. Xem trước trực tiếp. Tùy chọn upload Texture Maps (Base Color, Normal, Roughness).
+Đồng bộ tập trung về một nơi duy nhất - ELEMENTA Admin.
 
-5.  **TAB 5: SEO & METADATA**
-    - Meta Title & Description (VN/EN) với bộ đếm ký tự.
-    - URL Slug tùy chỉnh và Từ khóa.
+- **Sync Shopee / Lazada / TikTok Shop:**
+  - Đồng bộ tồn kho 2 chiều (bán ở Web, giảm tồn ở Shopee).
+  - Đồng bộ đơn hàng về Admin để xử lý tập trung.
+  - Đẩy sản phẩm từ Admin lên sàn (Bulk Push).
+- **Social Commerce:**
+  - Tích hợp Facebook/Instagram Shop.
+  - Tự động ẩn comment chứa số điện thoại.
+  - Chốt đơn tự động qua livestream comment.
+- **POS (Tại Pop-up Store):**
+  - Giao diện bán hàng tại quầy cho nhân viên (iPad app).
+  - Quét mã vạch thanh toán, in hóa đơn.
 
-6.  **TAB 6: VẬN CHUYỂN & LOGISTICS**
-    - Trọng lượng (gr), Kích thước (D x R x C cm).
-    - Lớp vận chuyển (Tiêu chuẩn/Hỏa tốc).
-    - Quy cách đóng gói (Túi CPE/Hộp Carton).
+### 3.5. Xử Lý Đơn Hàng & Vận Chuyển
 
-#### 3.3.2. Quản Lý Đơn Hàng (Order Management)
+#### 3.5.1. Quy Trình Fulfillment Tự Động
 
-**Quy trình Xử lý Đơn hàng (Workflow):**
-Hệ thống tự động hóa các bước: Gửi email xác nhận, SMS khi giao hàng, Trừ tồn kho, Tạo vận đơn (GHN/GHTK).
+**Workflow:** `New` -> `Verified` -> `QC Passed` -> `Packed` -> `Shipping` -> `Delivered`.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Placed: Khách đặt hàng
-    Placed --> QC_Pending: Chờ duyệt QC
+    [*] --> Placed: Đặt hàng
+    Placed --> Verified: Xác thực
+    Verified --> QC_Passed: QC Đạt
+    Verified --> QC_Failed: QC Lỗi
 
-    state QC_Processing {
-        QC_Pending --> QC_Check: Kiểm tra sản phẩm
-        QC_Check --> QC_Passed: Đạt chuẩn
-        QC_Check --> QC_Reject: Lỗi/Hỏng
-    }
+    QC_Passed --> Packed: Đóng gói
+    Packed --> Shipping: Giao ĐVVC
 
-    QC_Passed --> Packing: Đóng gói & Dán nhãn
-    Packing --> Shipped: Giao ĐVVC
-    Shipped --> Delivered: Giao thành công
+    Shipping --> Delivered: Thành công
+    Shipping --> Returned: Hoàn hàng
 
-    QC_Reject --> Hold: Tạm giữ/Liên hệ khách
-    Hold --> Canceled: Hủy đơn
     Delivered --> [*]
+    QC_Failed --> Cancelled: Hủy đơn
+    Returned --> Refunded: Hoàn tiền
 ```
 
-#### 3.3.3. Quản Lý Khách Hàng (CRM Lite)
+- **Tự động gán vận chuyển:** Tự động chọn ĐVVC (GHTK/GHN/Ahamove) có phí rẻ nhất hoặc tốc độ nhanh nhất theo khu vực khách hàng.
+- **In vận đơn hàng loạt:** Chỉ 1 click in 100 đơn (khổ A6/A7).
+- **Quản lý Hoàn/Hủy (RMA):** Quy trình xử lý đổi trả, hoàn tiền, nhập kho hàng hoàn, đánh giá lý do hoàn (Lỗi SP / Khách đổi ý).
 
-- **Danh sách:** Phân khúc (VIP, Thân thiết), Giá trị vòng đời (LTV), Lịch sử mua hàng.
-- **Hồ sơ chi tiết:** Lịch sử đơn hàng, Sản phẩm yêu thích (Wishlist), Lịch sử liên hệ.
+#### 3.5.2. Cổng Thanh Toán (Payment Gateway)
 
-#### 3.3.4. Báo Cáo & Phân Tích (Analytics)
+- **Tích hợp sâu:** Momo, ZaloPay (QR Code động), Thẻ ATM/Visa/Master (qua OnePay/VNPAY).
+- **Buy Now Pay Later:** Tích hợp Fundiin/Kredivo.
+- **Đối soát COD:** Báo cáo đối soát tiền thu hộ từ ĐVVC tự động.
 
-Hiển thị các Widget trực quan và Xuất báo cáo (CSV/PDF):
+### 3.6. Marketing & Tăng Trưởng (Growth Tools)
 
-- **Tổng quan:** Xu hướng doanh thu, Top sản phẩm, Tỷ lệ chuyển đổi.
-- **Tồn kho:** Cảnh báo sắp hết, Tồn kho lâu ngày.
-- **Khách hàng:** Tỷ lệ khách quay lại, Giá trị đơn trung bình (AOV).
-- **Vận hành:** Hiệu suất giao hàng, Tỷ lệ hoàn/hủy, Tỷ lệ QC từ chối.
+Bộ công cụ mạnh mẽ để tăng AOV (Giá trị đơn hàng trung bình) và LTV (Vòng đời khách).
 
-#### 3.3.5. Quản Lý Nội Dung & Marketing
+#### 3.6.1. Khuyến Mãi Nâng Cao (Promotions)
 
-- **Trình quản lý Trang:** Kéo thả các section cho Homepage (Slider, Sản phẩm nổi bật, Video).
-- **Blog:** Soạn thảo bài viết, danh mục, SEO.
-- **Công cụ Marketing:**
-  - **Mã giảm giá:** Theo % hoặc Số tiền, Miễn phí vận chuyển. (Ví dụ: `LAUNCH50`).
-  - **Email:** Gửi tự động (Abandoned cart, Back-in-stock).
+- **Mã giảm giá linh hoạt:**
+  - Theo % hoặc số tiền cố định.
+  - Áp dụng cho: Sản phẩm cụ thể, Bộ sưu tập, Khách hàng VIP.
+  - Điều kiện: Tổng đơn tối thiểu, Giới hạn lượt dùng.
+- **Chương trình tự động (Automatic Discount):**
+  - "Mua X tặng Y" (Buy 1 Get 1).
+  - "Combo giá sốc" (Mua Áo + Quần giảm 15%).
+  - Tiered Discount (Mua 2 giảm 5%, Mua 3 giảm 10%).
+  - Flash Sale (Đếm ngược, giới hạn số lượng bán).
 
-#### 3.3.6. Cài Đặt Hệ Thống
+#### 3.6.2. Loyalty & CRM
 
-- **Vận chuyển (Shipping Zones):**
-  - Khu vực HCM: Tiêu chuẩn (30k), Hỏa tốc (50k). Freeship > 500k.
-  - Khu vực Hà Nội/Tỉnh: Tiêu chuẩn (40k), Nhanh (70k).
-- **Thanh toán:** Tích hợp COD (phí thu hộ), Chuyển khoản (VietQR), Ví điện tử (Momo, ZaloPay), Stripe (Quốc tế).
-- **Phân quyền (Roles):** Admin, Quản lý, Chuyên viên QC, Biên tập viên, CSKH.
+- **Elementa Rewards (Điểm thưởng):** Tích 1 điểm cho mỗi 100k mua hàng. Đổi điểm lấy Voucher hoặc Quà tặng độc quyền.
+- **Hạng thành viên (Membership Tiers):**
+  - _Base Member:_ Mặc định.
+  - _Scholar:_ Chi tiêu > 2tr. (Freeship trọn đời).
+  - _Kinetic:_ Chi tiêu > 10tr. (Early access BST mới).
+- **Phân nhóm khách hàng (Segmentation):** Lọc danh sách "Khách chưa quay lại trong 30 ngày", "Khách chi tiêu cao (Whales)" để chạy Facebook Ads (Lookalike Audience).
 
-### 3.4. Ứng Dụng Admin Mobile (Giai đoạn 2)
+#### 3.6.3. Affiliate & Referral
 
-Ứng dụng di động cho quản trị viên để nhận thông báo thời gian thực, duyệt QC tại xưởng (chụp ảnh, tick chọn), quét mã vạch kiểm kho và trả lời tin nhắn khách hàng.
+- Tạo link tiếp thị liên kết cho KOL/KOC.
+- Tính hoa hồng tự động theo doanh số.
+- Dashboard cho Partner xem hiệu quả.
 
----
+### 3.7. Báo Cáo & Tài Chính (Business Intelligence)
+
+Hệ thống báo cáo chuẩn CFO:
+
+- **Báo cáo Lãi/Lỗ (P&L):** Doanh thu - (Giá vốn + Phí ship + Phí sàn + Marketing) = Lợi nhuận ròng.
+- **Báo cáo Bán hàng:** Theo kênh bán, theo nhân viên, theo khu vực địa lý.
+- **Báo cáo Tồn kho:** Tốc độ quay vòng vốn, Hàng bán chậm (Dead stock), Giá trị tồn kho thời gian thực.
+- **Google Analytics 4 & Pixel:** Tích hợp sâu sự kiện E-commerce (ViewContent, AddToCart, Purchase, InitiateCheckout).
+
+### 3.8. Cấu Hình Hệ Thống & Phân Quyền
+
+- **Tên miền & DNS:** Quản lý SSL miễn phí.
+- **Nhân viên & Phân quyền:**
+  - _Super Admin:_ Toàn quyền.
+  - _Kho:_ Chỉ xem đơn hàng & tồn kho.
+  - _Marketing:_ Chỉ xem báo cáo & tạo promotion.
+  - _CSKH:_ Chỉ xem đơn hàng & chat với khách.
+- **Nhật ký hoạt động (Audit Logo):** Ghi lại mọi thao tác của nhân viên để tra soát (Ai đã sửa giá? Ai đã hủy đơn?).
 
 ## 4. TRIẾT LÝ THIẾT KẾ & CẢM HỨNG
 
